@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # dgraph.py >>> Directed graph
 import random
+import itertools
 
 def randomDirectedGraph(n, p):
 	graph = {}
@@ -17,12 +18,25 @@ def randomDirectedGraph(n, p):
 
 def countTriangles(graph):
 	triangles = 0
-	for i in graph.keys():
-		for j in graph[i]:
-			for k in graph[j]:
-				if k in graph[i]:
-					triangles += 1
-	return int(triangles/6)
+	for c in itertools.combinations(graph.keys(), 3):
+		for x in itertools.permutations(c):
+			if x[1] in graph[x[0]] and x[2] in graph[x[1]] and x[2] in graph[x[0]]:
+				triangles += 1
+				break
+	return triangles
+
+# def countTriangles(graph):
+# 	triangles = {}
+# 	for i in graph.keys():
+# 		for j in graph[i]:
+# 			for k in graph[j]:
+# 				if k in graph[i]:
+# 					vert = ''.join(sorted([str(i), str(j), str(k)]))
+# 					try:
+# 						triangles[vert]
+# 					except KeyError:
+# 						triangles[vert] = None
+# 	return len(triangles.keys())
 
 def diameter(graph):
   n = len(graph)
