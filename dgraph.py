@@ -175,7 +175,7 @@ def Page_Rank(graph, alpha=0.85, max_iter=100, eps=1.0e-8):
 		if err < eps:
 			break
 		if i > max_iter:
-			raise Error('Exceeded max number of iterations')
+			raise Exception('Exceeded max number of iterations')
 		i += 1
 
 	return pr, i, err
