@@ -1,5 +1,7 @@
+#!/usr/bin/python
+
 def betweenness(graph, verbose=False):
-  cb = dict() #betweenness centrality
+  cb = {} #betweenness centrality
 
   for i in graph.keys():
     cb[i] = 0
@@ -7,18 +9,18 @@ def betweenness(graph, verbose=False):
   for i in graph.keys(): #check the max distance for every node i
     visited = [] #keep a list of visited nodes to check if the graph is connected
 
-    P = dict()
+    P = {}
     for j in graph.keys():
       P[j] = [] # j's parents list
 
-    sigma = dict()
+    sigma = {}
     for j in graph.keys():
       sigma[j] = 0
     sigma[i] = 1
 
     ###BFS###
     queue = [i]
-    distance = dict()
+    distance = {}
     for j in graph.keys():
       distance[j] = -1
 
@@ -41,7 +43,7 @@ def betweenness(graph, verbose=False):
       print 'Visited: ', visited
       print 'i: ', i, ' Parents: ', P
 
-    delta = dict()
+    delta = {}
     for j in graph.keys():
       delta[j] = 0
     # visited returns vertices in order of non-increasing distance from s
