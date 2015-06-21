@@ -156,7 +156,7 @@ def Page_Rank(graph, alpha=0.85, max_iter=100, eps=1.0e-8):
 	keys = graph.keys()
 	N = len(keys)
 	alpha_on_N = alpha / N
-	one_minus_alpha = 1 - alpha
+	one_minus_alpha = 1.0 - alpha
 	pr = dict.fromkeys(keys, 1.0/N)
 
 	# ITERATE PAGE RANK
@@ -164,11 +164,13 @@ def Page_Rank(graph, alpha=0.85, max_iter=100, eps=1.0e-8):
 	while True:
 		pr_last = pr.copy()
 		for u in keys:
-			pr[u] = (one_minus_alpha) * sum([(pr_last[v] / len(graph[v]) ) for v in incoming[u]]) + alpha_on_N
+			pr[u] = (one_minus_alpha / N) + alpha * sum([(pr_last[v] / len(graph[v])) for v in incoming[u]]) # standard formula
+			# pr[u] = (one_minus_alpha) * sum([(pr_last[v] / len(graph[v]) ) + alpha_on_N for v in incoming[u]])
 
 		# normalize to 1
-		s = sum(pr.values())
-		pr.update((k, float(v)*s) for k, v in pr.items())
+		s = float(sum(pr.values()))
+		print s
+		pr.update((k, float(v) / s) for k, v in pr.items())
 
 		# CHECK
 		err = sum([abs(pr[u] - pr_last[u]) for u in keys])
