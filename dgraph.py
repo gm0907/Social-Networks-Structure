@@ -3,12 +3,12 @@
 
 import random
 import itertools
+import copy
 
 incoming = {}
 
 def readGraph(filename):
 	graph = {}
-	global incoming
 	with open(filename) as fp:
 		for line in fp:
 			if '#' not in line:
@@ -18,20 +18,15 @@ def readGraph(filename):
 				graph[u].add(v)
 				if v not in graph:
 					graph[v] = set()
-				if v not in incoming:
-					incoming[v] = {u}
-				else:
-					incoming[v].add(u)
+	fill_incoming(graph)
 	return graph
 
 def fill_incoming(graph):
 	global incoming
+	incoming = dict.fromkeys(graph.keys(), set())
 	for u in graph.keys():
 		for v in graph[u]:
-			if v not in incoming:
-				incoming[v] = {u}
-			else:
-				incoming[v].add(u)
+			incoming[v].add(u)
 
 def randomDirectGraph(n, p):
 	graph = {}
@@ -93,7 +88,7 @@ def diameter(graph):
 # n is the number of nodes
 # r is the radius of each node (a node u is connected with each other node at distance at most r) - strong ties
 # k is the number of random edges for each node u - weak ties
-def WSGridGraph(n, r, k):
+def GenWSGridGraph(n, r, k, q=2):
 	line = int(math.sqrt(n))
 	graph = dict()
 	#Initialization
@@ -114,12 +109,17 @@ def WSGridGraph(n, r, k):
 
 			#For each node u, we add a node to k randomly chosen nodes
 			for h in range(k):
-				s = random.randint(0,n-1)
-				if s != i*line+j:
+				xs = random.randint(0, line)
+				ys = random.randint(0, line)
+				if xs != i and xy != j and random.random() <= euclidian_distance((xs, ys), (i,j))**q:
 					graph[i*line+j].add(s)
-					graph[s].add(i*line+j)
+					# graph[s].add(i*line+j)
 	return graph
 
+def euclidian_distance(a, b):
+	return ((a[0] - b[0])**2 + (a[1] - b[1])**2)**(0.5)
+# s / line + (s - (s/line)*line)
+# 2 ; 2
 # n is the number of nodes
 # r is the radius
 # k is the number of random edges
@@ -162,7 +162,7 @@ def Page_Rank(graph, alpha=0.85, max_iter=100, eps=1.0e-8):
 	# ITERATE PAGE RANK
 	i = 0
 	while True:
-		pr_last = pr.copy()
+		pr_last = copy.deepcopy(pr)
 		for u in keys:
 			pr[u] = (one_minus_alpha / N) + alpha * sum([(pr_last[v] / len(graph[v])) for v in incoming[u]]) # standard formula
 			# pr[u] = (one_minus_alpha) * sum([(pr_last[v] / len(graph[v]) ) + alpha_on_N for v in incoming[u]])
@@ -182,4 +182,33 @@ def Page_Rank(graph, alpha=0.85, max_iter=100, eps=1.0e-8):
 
 	return pr, i, err
 
+def Independent_Cascade(graph, seeds, rounds=0):
+	# INIT
+	A = set(seeds) # adopters
+	neg_A = set(graph.keys()) - A # not influenced indivuduals set
+	S = A # recent adopters
+	i = 1 # iterations
 
+	# DIFFUSE
+	while True:
+		S = IC_round(graph, A, neg_A, S)
+		if not S:
+			break
+		A |= S
+		neg_A -= S
+		i += 1
+		if rounds and i > rounds:
+			break
+
+	return A, neg_A, i
+
+
+def IC_round(graph, adopters, others, recents):
+	N = set() # new adopters
+	for u in recents: # each node u in S
+		for v in graph[u]:
+			if v in others:
+				deg_v = len(graph[v]) + len(incoming[v])
+				if random.random() >= 1.0 / deg_v: # higher degree(v) means that v has to adopt the feature
+					N.add(v)
+	return N
