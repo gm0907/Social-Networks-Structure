@@ -56,6 +56,9 @@ def betweenness(graph, verbose=False):
   return cb
 
 def topk(cb, k):
+  return sorted(cb.items(), key = lambda x : x[1], reverse=True)[:k]
+
+def lastk(cb, k):
   return sorted(cb.items(), key = lambda x : x[1], reverse=True)[-k:]
 
 def cb_max(cb):

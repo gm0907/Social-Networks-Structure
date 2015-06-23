@@ -23,10 +23,12 @@ def readGraph(filename):
 
 def fill_incoming(graph):
 	global incoming
-	incoming = dict.fromkeys(graph.keys(), set())
-	for u in graph.keys():
-		for v in graph[u]:
-			incoming[v].add(u)
+	incoming = {k: set() for k, _ in graph.items()}
+	for u, nbrs in graph.items():
+		for v in nbrs:
+			if u not in incoming[v]:
+				incoming[v].add(u)
+
 
 def randomDirectGraph(n, p):
 	graph = {}
@@ -166,7 +168,7 @@ def Page_Rank(graph, alpha=0.85, max_iter=100, eps=1.0e-8):
 		for u in keys:
 			# pr[u] = (one_minus_alpha / N) + alpha * sum([(pr_last[v] / len(graph[v])) for v in incoming[u]]) # standard formula
 			pr[u] = (one_minus_alpha) * sum([(pr_last[v] / len(graph[v]) ) + alpha_on_N for v in incoming[u]])
-
+			# possible division by zero                  ^^^ here
 		# normalize to 1
 		s = float(sum(pr.values()))
 		# print s
@@ -209,6 +211,6 @@ def IC_round(graph, adopters, others, recents):
 		for v in graph[u]:
 			if v in others:
 				deg_v = len(graph[v]) + len(incoming[v])
-				if random.random() >= 1.0 / deg_v: # higher degree(v) means that v has to adopt the feature
+				if random.random() > 1.0 / deg_v: # higher degree(v) means that v has to adopt the feature
 					N.add(v)
 	return N
