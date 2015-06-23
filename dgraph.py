@@ -164,12 +164,12 @@ def Page_Rank(graph, alpha=0.85, max_iter=100, eps=1.0e-8):
 	while True:
 		pr_last = copy.deepcopy(pr)
 		for u in keys:
-			pr[u] = (one_minus_alpha / N) + alpha * sum([(pr_last[v] / len(graph[v])) for v in incoming[u]]) # standard formula
-			# pr[u] = (one_minus_alpha) * sum([(pr_last[v] / len(graph[v]) ) + alpha_on_N for v in incoming[u]])
+			# pr[u] = (one_minus_alpha / N) + alpha * sum([(pr_last[v] / len(graph[v])) for v in incoming[u]]) # standard formula
+			pr[u] = (one_minus_alpha) * sum([(pr_last[v] / len(graph[v]) ) + alpha_on_N for v in incoming[u]])
 
 		# normalize to 1
 		s = float(sum(pr.values()))
-		print s
+		# print s
 		pr.update((k, float(v) / s) for k, v in pr.items())
 
 		# CHECK
@@ -180,7 +180,7 @@ def Page_Rank(graph, alpha=0.85, max_iter=100, eps=1.0e-8):
 			raise Exception('Exceeded max number of iterations')
 		i += 1
 
-	return pr, i, err
+	return pr, i+1, err
 
 def Independent_Cascade(graph, seeds, rounds=0):
 	# INIT

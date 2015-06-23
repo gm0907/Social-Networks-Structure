@@ -9,7 +9,7 @@ seed = int(sys.argv[1])
 
 g = readGraph('wiki-Vote.txt')
 
-pagerank, iterations, err = pr(g, alpha=1.0e-6, eps=1.0e-14) # alpha = 0.000001
+pagerank, iterations, err = pr(g, alpha=1.0e-5, eps=1.0e-14) # alpha = 0.000001
 print 'Page Rank. %s iterations. %s accuracy' % (iterations, err)
 top = [a for a,b in topk(pagerank, seed)]
 print 'Top', seed

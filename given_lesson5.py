@@ -6,11 +6,11 @@ from lesson4 import betweenness
 def eigenvector(graph,confidence):
   nodes = graph.keys()
   done = 0
-  
+
   eigen = dict()
   for i in nodes:
-    eigen[i] = 1/len(nodes)
-  
+    eigen[i] = 1
+
   tmp = dict() # I first compute this temporary value for eigenvector centrality. The real value consists of a normalization of this temporary value
   while not done: # I repeat the process until the centrality vector does not change anymore.
     max_tmp = 0
@@ -20,24 +20,24 @@ def eigenvector(graph,confidence):
         tmp[i] += eigen[j]
       if tmp[i] > max_tmp:
         max_tmp = tmp[i]
-        
+
     diff = 0
     for i in nodes:
       diff += abs(eigen[i]-float(tmp[i])/max_tmp) # Distance between old and new centrality vector
       eigen[i] = float(tmp[i])/max_tmp
-    
+
     if diff < confidence:
       done = 1
   return eigen
 
 # Returns the k most central nodes in the network
 def top(graph,k,centrality,confidence):
-  
+
   if centrality == "b":
     b = betweenness(graph)
   elif centrality == "e":
     b = eigenvector(graph,float(confidence))
-    
+
   top = []
   top_values = []
   for i in b.keys():
