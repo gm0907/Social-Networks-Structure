@@ -52,7 +52,7 @@ def randomDirectBalancedGraph(n, p, min_edges, max_edges):
                 v1 = random.randint(0, n-1)
                 v2 = random.randint(0, n-1)
                 if (v1 != v2) and v2 not in graph[v1]:
-                    find_pair = True;                    
+                    find_pair = True;
             # random graph property
             r = random.random()
             if r <= p:
@@ -195,15 +195,15 @@ def Page_Rank(graph, alpha=0.85, max_iter=150, eps=1.0e-5):
 
         # Max value
         s = max(pr.values())
-        print s
-#       s = float(sum(pr.values()))
+        # s = float(sum(pr.values()))
+
+        # normalize to 1
+        pr.update((k, float(v) / s) for k, v in pr.items())
+
 
         # Summation of differences: new - previous
         err = sum([abs(pr[u] - pr_last[u]) for u in keys])
-        
-        # normalize to 1
-        pr.update((k, float(v) / s) for k, v in pr.items())
-        
+
         if err < eps:
             break
         if i > max_iter:

@@ -11,15 +11,15 @@ from dgraph import Page_Rank as pr
 from dgraph import fill_incoming as fi
 import networkx as nx
 
-# g = randDGraph(500, 0.1)
+seed = 100
 g = readGraph('wiki-Vote.txt')
 
-#G = nx.from_dict_of_lists(g)
-#print 'NetworkX Page Rank'
-#print [a for a,b in topk(nx.pagerank(G, alpha=1.0e-6, tol=1.0e-10), 10)]
+# G = nx.from_dict_of_lists(g)
+# print 'NetworkX Page Rank'
+# print [a for a,b in topk(nx.pagerank(G, alpha=1.0e-6, tol=1.0e-10), 10)]
 # print [a for a,b in topk(nx.eigenvector_centrality(G), 10)]
 # g = {0: [2, 3, 4], 1: [0, 2, 3], 2: [1], 3: [0, 4], 4: [0]}
-fi(g) # a :D
+fi(g)
 print 'Incoming edges stored'
 # print 'Nodes: ', len(g.keys())
 # print 'Diameter: ', diameter(g)
@@ -28,7 +28,7 @@ print 'Page Rank execution...'
 pagerank, iterations, err = pr(g, alpha=1.0e-5, eps=1.0e-8) # alpha = 0.00001
 print iterations, ' iterations. Error:', err
 print 'Page Rank'
-print [a for a,b in topk(pagerank, 10)]
+print topk(pagerank, seed)
 # print 'Eigenvector Centrality'
 # cscores, diffsum = ec(g)
 # print [a for a, b in topk(cscores, 10)]
