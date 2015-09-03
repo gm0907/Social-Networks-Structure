@@ -27,6 +27,8 @@ def fill_incoming(graph):
     incoming = {k: set() for k, _ in graph.items()}
     for u, nbrs in graph.items():
         for v in nbrs:
+            if v not in incoming:
+                incoming[v] = set()
             if u not in incoming[v]:
                 incoming[v].add(u)
 
@@ -41,6 +43,8 @@ def toUndirect(directGraph):
 
     for u in ugraph.keys():
         for v in ugraph[u]:
+            if v not in ugraph:
+                ugraph[v] = set()
             if u not in ugraph[v]:
                 ugraph[v].add(u)
     return ugraph
@@ -58,12 +62,10 @@ def randomDirectGraph(n, p):
                 graph[i].append(j) #graph is directed, thus we don't need to add the other edge (j, i)
     return graph
 
-def randomDirectBalancedGraph(n, p, min_edges, max_edges):
+def randomDirectBalancedGraph(n, p, edges):
     graph = {i: [] for i in xrange(n)}
-    edges = random.randint(min_edges, max_edges)
-    while edges > 0: # create n_edges edges
-            
-            while True: # generate a valid pair
+    while edges > 0:
+            while True:
                 v1 = random.randint(0, n-1)
                 v2 = random.randint(0, n-1)
                 if (v1 != v2) and v2 not in graph[v1]:
@@ -119,44 +121,52 @@ def diameter(graph):
     return diameter
 
 
-def GenWSGridGraph(n, r, k, q=2):
+def GenWSGridGraph(n, m, r, k, q=2):
     '''
     @param n: number of nodes
+    @param m: number of edges
     @param r : radius of each node (a node u is connected with each other node at distance at most r) - strong ties
-    @param k : number of random edges for each node u - weak ties
+    @param k : number of random edges for each node u - weak ties [list] e.g. [0, 5, 10]
     '''
     line = int(math.sqrt(n))
-    graph = dict()
     #Initialization
-    for i in range(line): #i represents the grid row
-        for j in range(line): #j represents the grid coloumn
-            graph[i*line+j] = set() #Each node is identified by a number in [0, n - 1]
+    graph = {k : set() for k in xrange(n)}
 
-    #For each node u, we add an edge to each node at distance at most r from u
-    for i in range(line):
-        for j in range(line):
-            for x in range(r+1): # x is the horizontal offset
-                for y in range(r+1-x): # y is the vertical offset. The sum of offsets must be at most r
+    while m > 0:
+        i = random.randint(0, line-1)
+        #j = random.randint(0, line-1)
+        #For each node u, we add an edge to each node at distance at most r from u
+        for j in xrange(line):
+            for x in xrange(r+1): # x is the horizontal offset
+                for y in xrange(r+1-x): # y is the vertical offset. The sum of offsets must be at most r
                     if x + y > 0: # The sum of offsets must be at least 1
-                        if i + x < line and j + y < line:
+                        if i + x < line and j + y < line and (i+x)*line+(j+y) not in graph[i*line+j]:
                             graph[i*line+j].add((i+x)*line+(j+y))
-                            graph[(i+x)*line+(j+y)].add(i*line+j)
+                            m -= 1
+                            if m == 0:
+                                return graph
                             # We do not consider(i+x,j-y) (i-x,j+y) and (i-x,j-y) since the edge between these nodes and (i,j) has been already added at previous iterations
 
             #For each node u, we add a node to k randomly chosen nodes
-            for h in range(k):
-                xs = random.randint(0, line)
-                ys = random.randint(0, line)
-                if xs != i and xy != j and random.random() <= euclidian_distance((xs, ys), (i,j))**q:
-                    graph[i*line+j].add(s)
-                    # graph[s].add(i*line+j)
+            weak_ties = random.choice(k)
+            while weak_ties > 0:
+                #while True:
+                xt = random.randint(0, line-1)
+                yt = random.randint(0, line-1)
+                if xt*line+yt > n-1:
+                    continue
+                if xt != i and yt != j and random.random() <= (1/(euclidean_distance((xt, yt), (i,j))**q)):
+                    #break
+                    graph[i*line+j].add(xt*line+yt)
+                    m -= 1
+                    weak_ties -= 1
+                    if m == 0:
+                        return graph
     return graph
 
-def euclidian_distance(a, b):
+def euclidean_distance(a, b):
     return ((a[0] - b[0])**2 + (a[1] - b[1])**2)**(0.5)
 
-# s / line + (s - (s/line)*line)
-# 2 ; 2
 def WS2DGraph(n, m, r, k):
     '''
     @param n: number of nodes
@@ -175,7 +185,7 @@ def WS2DGraph(n, m, r, k):
         graph[i]["y"] = y*line
         graph[i]["list"] = set()
 
-    
+
     #For each node u, we add an edge to each node at distance at most r from u
     while m > 0:
         i = random.randint(0, n-1)
