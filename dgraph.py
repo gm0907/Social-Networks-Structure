@@ -4,6 +4,7 @@
 import random
 import itertools
 import copy
+import math
 
 incoming = {}
 
@@ -29,6 +30,20 @@ def fill_incoming(graph):
             if u not in incoming[v]:
                 incoming[v].add(u)
 
+def standardize(ws2dgraph):
+    return {k: v['list'] for k,v in ws2dgraph.items()}
+
+def toUndirect(directGraph):
+    if type(directGraph.values()[0]) is set:
+        ugraph = {k:v for k, v in directGraph.items()}
+    elif type(directGraph.values()[0]) is list:
+        ugraph = {k:set(v) for k, v in directGraph.items()}
+
+    for u in ugraph.keys():
+        for v in ugraph[u]:
+            if u not in ugraph[v]:
+                ugraph[v].add(u)
+    return ugraph
 
 def randomDirectGraph(n, p):
     graph = {}
@@ -47,12 +62,12 @@ def randomDirectBalancedGraph(n, p, min_edges, max_edges):
     graph = {i: [] for i in xrange(n)}
     edges = random.randint(min_edges, max_edges)
     while edges > 0: # create n_edges edges
-            find_pair = False
-            while find_pair == False: # generate a valid pair
+            
+            while True: # generate a valid pair
                 v1 = random.randint(0, n-1)
                 v2 = random.randint(0, n-1)
                 if (v1 != v2) and v2 not in graph[v1]:
-                    find_pair = True;
+                    break
             # random graph property
             r = random.random()
             if r <= p:
@@ -142,11 +157,12 @@ def euclidian_distance(a, b):
 
 # s / line + (s - (s/line)*line)
 # 2 ; 2
-def WS2DGraph(n, r, k):
+def WS2DGraph(n, m, r, k):
     '''
     @param n: number of nodes
+    @param m: number of edges
     @param r: radius
-    @param k: number of random edges
+    @param k: number of random edges [list] e.g. [0, 5, 10]
     '''
     line = int(math.sqrt(n))
     graph = dict()
@@ -159,20 +175,32 @@ def WS2DGraph(n, r, k):
         graph[i]["y"] = y*line
         graph[i]["list"] = set()
 
+    
     #For each node u, we add an edge to each node at distance at most r from u
-    for i in range(n):
-        for j in range(i+1,n):
-            dist=math.sqrt((graph[i]["x"]-graph[j]["x"])**2 + (graph[i]["y"]-graph[j]["y"])**2) # Euclidean distance between i and j
-            if dist <= r:
-                graph[i]["list"].add(j)
-                graph[j]["list"].add(i)
+    while m > 0:
+        i = random.randint(0, n-1)
+        if not graph[i]['list']:
+            for j in range(n):
+                dist = math.sqrt((graph[i]["x"]-graph[j]["x"])**2 + (graph[i]["y"]-graph[j]["y"])**2) # Euclidean distance between i and j
 
-        #For each node u, we add a node to k randomly chosen nodes
-        for h in range(k):
-            s = random.randint(0,n-1)
-            if s != i:
+                if dist <= r and i != j and j not in graph[i]["list"]:
+                    graph[i]["list"].add(j)
+                    m -= 1
+                    if m == 0:
+                        break
+
+            #For each node u, we add a node to k randomly chosen nodes
+            weak_ties = random.choice(k)
+            for h in range(weak_ties):
+                while True:
+                    s = random.randint(0,n-1)
+                    if s != i and s not in graph[i]["list"]:
+                        break
                 graph[i]["list"].add(s)
-                graph[s]["list"].add(s)
+                m -= 1
+                if m == 0:
+                    break
+
     return graph
 
 def Page_Rank(graph, alpha=0.85, max_iter=150, eps=1.0e-5):
@@ -239,6 +267,6 @@ def IC_round(graph, adopters, others, recents):
         for v in graph[u]: # tries to influence each neighbor v in neg_A
             if v in others:
                 deg_v = len(graph[v]) + len(incoming[v])
-                if random.random() < 1.0 / deg_v: # higher degree(v) means that v has to adopt the feature
+                if random.random() <= 1.0 / deg_v: # higher degree(v) means that v has to adopt the feature
                     N.add(v)
     return N

@@ -60,7 +60,7 @@ def WS2DGraph(n, r, k):
 			s = random.randint(0,n-1)
 			if s != i:
 				graph[i]["list"].add(s)
-				graph[s]["list"].add(s)
+				graph[s]["list"].add(i)
 	return graph
 
 def countEdges(graph):
