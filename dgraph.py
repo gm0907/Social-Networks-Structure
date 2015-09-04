@@ -1,10 +1,12 @@
 #!/usr/bin/python
 # dgraph.py >>> Directed graph
 
+from __future__ import division
 import random
 import itertools
 import copy
 import math
+
 
 incoming = {}
 
@@ -19,7 +21,6 @@ def readGraph(filename):
                 graph[u].add(v)
                 if v not in graph:
                     graph[v] = set()
-    fill_incoming(graph)
     return graph
 
 def fill_incoming(graph):
@@ -27,8 +28,6 @@ def fill_incoming(graph):
     incoming = {k: set() for k, _ in graph.items()}
     for u, nbrs in graph.items():
         for v in nbrs:
-            if v not in incoming:
-                incoming[v] = set()
             if u not in incoming[v]:
                 incoming[v].add(u)
 
@@ -36,10 +35,11 @@ def standardize(ws2dgraph):
     return {k: v['list'] for k,v in ws2dgraph.items()}
 
 def toUndirect(directGraph):
-    if type(directGraph.values()[0]) is set:
-        ugraph = {k:v for k, v in directGraph.items()}
-    elif type(directGraph.values()[0]) is list:
-        ugraph = {k:set(v) for k, v in directGraph.items()}
+    dcopy = copy.deepcopy(directGraph)
+    if type(dcopy.values()[0]) is set:
+        ugraph = dcopy
+    elif type(dcopy.values()[0]) is list:
+        ugraph = {k:set(v) for k, v in dcopy.items()}
 
     for u in ugraph.keys():
         for v in ugraph[u]:
@@ -225,27 +225,24 @@ def Page_Rank(graph, alpha=0.85, max_iter=150, eps=1.0e-5):
     i = 0
     while True:
         pr_last = copy.deepcopy(pr)
+        
         for u in keys:
             # Calculate u's Page Rank
-            # pr[u] = (one_minus_alpha / N) + alpha * sum([(pr_last[v] / len(graph[v])) for v in incoming[u]]) # standard formula
             pr[u] = (one_minus_alpha) * sum([(pr_last[v] / len(graph[v]) ) + alpha_on_N for v in incoming[u]])
-            # possible division by zero                  ^^^ here
 
         # Max value
         s = max(pr.values())
-        # s = float(sum(pr.values()))
-
+              
         # normalize to 1
         pr.update((k, float(v) / s) for k, v in pr.items())
-
-
+        
         # Summation of differences: new - previous
         err = sum([abs(pr[u] - pr_last[u]) for u in keys])
-
+        
         if err < eps:
             break
         if i > max_iter:
-            raise Exception('Exceeded max number of iterations')
+            raise Exception('Exceeded max number of iterations. Last error margin: %f' % err)
         i += 1
 
     return pr, i+1, err
