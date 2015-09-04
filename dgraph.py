@@ -150,7 +150,6 @@ def GenWSGridGraph(n, m, r, k, q=2):
             #For each node u, we add a node to k randomly chosen nodes
             weak_ties = random.choice(k)
             while weak_ties > 0:
-                #while True:
                 xt = random.randint(0, line-1)
                 yt = random.randint(0, line-1)
                 if xt*line+yt > n-1:
@@ -201,13 +200,13 @@ def WS2DGraph(n, m, r, k):
 
             #For each node u, we add a node to k randomly chosen nodes
             weak_ties = random.choice(k)
-            for h in range(weak_ties):
-                while True:
-                    s = random.randint(0,n-1)
-                    if s != i and s not in graph[i]["list"]:
-                        break
+            while weak_ties > 0:
+                s = random.randint(0,n-1)
+                if s == i or s in graph[i]["list"]:
+                    continue
                 graph[i]["list"].add(s)
                 m -= 1
+                weak_ties -= 1
                 if m == 0:
                     break
 
