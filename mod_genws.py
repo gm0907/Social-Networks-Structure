@@ -5,9 +5,9 @@ import itertools
 import copy
 import math
 from lesson1 import averageClustering as ac
-from lesson2 import countEdges
+from dgraph import countEdges
 from dgraph import toUndirect as und
-
+from dgraph import euclidean_distance
 
 def GenWSGridGraph(n, m, r, k, q=2):
     '''
@@ -58,8 +58,7 @@ def GenWSGridGraph(n, m, r, k, q=2):
                 yt = random.randint(0, line-1)
                 if xt*line+yt > n-1:
                     continue
-                if xt != i and yt != j and random.random() <= (1/(euclidean_distance((xt, yt), (i,j))**q)):
-                    #break
+                if xt != i and yt != j and xt*line+yt not in graph[i*line+j] and random.random() <= (1/(euclidean_distance((xt, yt), (i,j))**q)):
                     graph[i*line+j].add(xt*line+yt)
                     m -= 1
                     weak_ties -= 1
@@ -67,15 +66,15 @@ def GenWSGridGraph(n, m, r, k, q=2):
                         return graph
     return graph
 
-def euclidean_distance(a, b):
-    return ((a[0] - b[0])**2 + (a[1] - b[1])**2)**(0.5)
 
 if __name__ == '__main__':
+    EXECUTIONS = 3
     NODES = 7056
-    edges = random.randint(75000, 125000)
+    # edges = random.randint(75000, 125000)
+    edges = [75000, 100000, 125000]
     radius = 2
     weak_ties = [i*5 for i in xrange(0, 3)]
     seed = 100
-    for i in xrange(10):
-        g = GenWSGridGraph(NODES, edges, radius, weak_ties)
-        print 'Edges %d\tAverage Clustering = %f' % (countEdges(g)*2,ac(und(g)))
+    for i in xrange(EXECUTIONS):
+        g = GenWSGridGraph(NODES, edges[i], radius, weak_ties)
+        print 'Edges %d\tAverage Clustering = %f' % (countEdges(g),ac(und(g)))

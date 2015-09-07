@@ -34,6 +34,13 @@ def fill_incoming(graph):
 def standardize(ws2dgraph):
     return {k: v['list'] for k,v in ws2dgraph.items()}
 
+def countEdges(graph):
+    edges = 0
+    for k in graph.keys():
+        for _ in graph[k]:
+            edges += 1
+    return edges
+
 def toUndirect(directGraph):
     dcopy = copy.deepcopy(directGraph)
     if type(dcopy.values()[0]) is set:
@@ -140,12 +147,28 @@ def GenWSGridGraph(n, m, r, k, q=2):
             for x in xrange(r+1): # x is the horizontal offset
                 for y in xrange(r+1-x): # y is the vertical offset. The sum of offsets must be at most r
                     if x + y > 0: # The sum of offsets must be at least 1
-                        if i + x < line and j + y < line and (i+x)*line+(j+y) not in graph[i*line+j]:
-                            graph[i*line+j].add((i+x)*line+(j+y))
-                            m -= 1
-                            if m == 0:
-                                return graph
-                            # We do not consider(i+x,j-y) (i-x,j+y) and (i-x,j-y) since the edge between these nodes and (i,j) has been already added at previous iterations
+                        if i + x < line:
+                            if j + y < line and (i+x)*line+(j+y) not in graph[i*line+j]:
+                                graph[i*line+j].add((i+x)*line+(j+y))
+                                m -= 1
+                                if m == 0:
+                                    return graph
+                            if j - y >= 0 and (i+x)*line+(j-y) not in graph[i*line+j]:
+                                graph[i*line+j].add((i+x)*line+(j-y))
+                                m -= 1
+                                if m == 0:
+                                    return graph
+                        if i - x >= 0:
+                            if j + y < line and (i-x)*line+(j+y) not in graph[i*line+j]:
+                                graph[i*line+j].add((i-x)*line+(j+y))
+                                m -= 1
+                                if m == 0:
+                                    return graph
+                            if j - y >= 0 and (i-x)*line+(j-y) not in graph[i*line+j]:
+                                graph[i*line+j].add((i-x)*line+(j-y))
+                                m -= 1
+                                if m == 0:
+                                    return graph
 
             #For each node u, we add a node to k randomly chosen nodes
             weak_ties = random.choice(k)
@@ -154,8 +177,7 @@ def GenWSGridGraph(n, m, r, k, q=2):
                 yt = random.randint(0, line-1)
                 if xt*line+yt > n-1:
                     continue
-                if xt != i and yt != j and random.random() <= (1/(euclidean_distance((xt, yt), (i,j))**q)):
-                    #break
+                if xt != i and yt != j and xt*line+yt not in graph[i*line+j] and random.random() <= (1/(euclidean_distance((xt, yt), (i,j))**q)):
                     graph[i*line+j].add(xt*line+yt)
                     m -= 1
                     weak_ties -= 1
@@ -224,20 +246,20 @@ def Page_Rank(graph, alpha=0.85, max_iter=150, eps=1.0e-5):
     i = 0
     while True:
         pr_last = copy.deepcopy(pr)
-        
+
         for u in keys:
             # Calculate u's Page Rank
             pr[u] = (one_minus_alpha) * sum([(pr_last[v] / len(graph[v]) ) + alpha_on_N for v in incoming[u]])
 
         # Max value
         s = max(pr.values())
-              
+
         # normalize to 1
         pr.update((k, float(v) / s) for k, v in pr.items())
-        
+
         # Summation of differences: new - previous
         err = sum([abs(pr[u] - pr_last[u]) for u in keys])
-        
+
         if err < eps:
             break
         if i > max_iter:
