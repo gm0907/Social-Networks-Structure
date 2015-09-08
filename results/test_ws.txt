@@ -1,0 +1,603 @@
+# 100 Watts-Strogatz Graphs
+# Edges 101800	Average Clustering = 0.171330
+# Page Rank execution...
+# 79  iterations. Error: 0.000990770787406
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 177	100 204	100 300
+# Edges 90298	Average Clustering = 0.177690
+# Page Rank execution...
+# 136  iterations. Error: 0.000935004239743
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 158	100 263	100 317
+# Edges 115528	Average Clustering = 0.166350
+# Page Rank execution...
+# 60  iterations. Error: 0.000996757286314
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 191	95 186	100 285
+# Edges 119322	Average Clustering = 0.159515
+# Page Rank execution...
+# 56  iterations. Error: 0.000924535488666
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 167	100 182	100 278
+# Edges 116858	Average Clustering = 0.163317
+# Page Rank execution...
+# 58  iterations. Error: 0.000934151104291
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 210	95 187	100 279
+# 100 Watts-Strogatz Graphs
+# Edges 84660	Average Clustering = 0.181309
+# Page Rank execution...
+# 43  iterations. Error: 0.000981465280638
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 176	100 257	100 337
+# Edges 80696	Average Clustering = 0.182484
+# Page Rank execution...
+# 127  iterations. Error: 0.000978124083185
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 182	95 208	100 327
+# Edges 86382	Average Clustering = 0.185228
+# Page Rank execution...
+# 367  iterations. Error: 0.000984527011359
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 175	100 232	100 321
+# Edges 89586	Average Clustering = 0.181857
+# Page Rank execution...
+# 93  iterations. Error: 0.000893430040205
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 168	95 215	95 310
+# Edges 111222	Average Clustering = 0.167775
+# Page Rank execution...
+# 75  iterations. Error: 0.000853638808109
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+90 196	100 183	95 271
+# Edges 106942	Average Clustering = 0.169219
+# Page Rank execution...
+# 85  iterations. Error: 0.000899529960272
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 198	100 229	95 280
+# Edges 86096	Average Clustering = 0.186513
+# Page Rank execution...
+# 161  iterations. Error: 0.000962444463506
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+90 183	90 225	95 304
+# Edges 116230	Average Clustering = 0.161557
+# Page Rank execution...
+# 86  iterations. Error: 0.000907318159321
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 182	100 169	100 235
+# Edges 121246	Average Clustering = 0.160559
+# Page Rank execution...
+# 75  iterations. Error: 0.000861766780244
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 149	95 183	95 281
+# Edges 113890	Average Clustering = 0.163824
+# Page Rank execution...
+# 98  iterations. Error: 0.000892332422087
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 162	100 197	100 300
+# Edges 81298	Average Clustering = 0.183584
+# Page Rank execution...
+# 61  iterations. Error: 0.000842537558841
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 160	100 280	100 366
+# Edges 76274	Average Clustering = 0.184154
+# Page Rank execution...
+# 214  iterations. Error: 0.00097226399776
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 185	100 229	100 366
+# Edges 98970	Average Clustering = 0.177533
+# Page Rank execution...
+# 124  iterations. Error: 0.000932813054308
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 167	95 203	95 296
+# Edges 97618	Average Clustering = 0.175039
+# Page Rank execution...
+# 57  iterations. Error: 0.000869150514074
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 174	95 203	95 303
+# Edges 122100	Average Clustering = 0.159819
+# Page Rank execution...
+# 56  iterations. Error: 0.000855036657884
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 168	100 192	95 234
+# Edges 81174	Average Clustering = 0.185521
+# Page Rank execution...
+# 139  iterations. Error: 0.000932915707783
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 201	95 215	90 321
+# Edges 76350	Average Clustering = 0.186631
+# Page Rank execution...
+# 110  iterations. Error: 0.000996682253016
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+90 172	95 249	100 355
+# Edges 82158	Average Clustering = 0.183408
+# Page Rank execution...
+# 105  iterations. Error: 0.000997537678066
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 180	95 215	100 361
+# Edges 120952	Average Clustering = 0.160586
+# Page Rank execution...
+# 77  iterations. Error: 0.000922180883269
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 198	100 172	100 244
+# Edges 118098	Average Clustering = 0.162807
+# Page Rank execution...
+# 51  iterations. Error: 0.000847064020823
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 170	95 190	100 288
+# Edges 78348	Average Clustering = 0.187631
+# Page Rank execution...
+# 335  iterations. Error: 0.000984314947075
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 149	100 234	95 332
+# Edges 83198	Average Clustering = 0.182799
+# Page Rank execution...
+# 240  iterations. Error: 0.000973421389056
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 158	95 293	95 307
+# Edges 77714	Average Clustering = 0.187096
+# Page Rank execution...
+# 127  iterations. Error: 0.000941799881545
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 167	100 280	95 343
+# Edges 107908	Average Clustering = 0.171769
+# Page Rank execution...
+# 84  iterations. Error: 0.000924816294442
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 159	100 202	100 294
+# Edges 105412	Average Clustering = 0.168895
+# Page Rank execution...
+# 74  iterations. Error: 0.000921220392037
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 168	100 194	100 284
+# Edges 92202	Average Clustering = 0.177021
+# Page Rank execution...
+# 111  iterations. Error: 0.000992052742153
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 167	100 219	95 322
+# Edges 110928	Average Clustering = 0.166048
+# Page Rank execution...
+# 67  iterations. Error: 0.000878193997545
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 187	100 182	100 247
+# Edges 75302	Average Clustering = 0.186911
+# Page Rank execution...
+# 194  iterations. Error: 0.000995325956707
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 176	100 251	95 364
+# Edges 115890	Average Clustering = 0.164725
+# Page Rank execution...
+# 53  iterations. Error: 0.000893405686931
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 181	100 191	100 251
+# Edges 100176	Average Clustering = 0.171513
+# Page Rank execution...
+# 88  iterations. Error: 0.00090699108225
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 182	100 234	95 313
+# Edges 83318	Average Clustering = 0.182664
+# Page Rank execution...
+# 227  iterations. Error: 0.000984584677646
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 163	100 195	95 334
+# Edges 87762	Average Clustering = 0.184206
+# Page Rank execution...
+# 76  iterations. Error: 0.000877602241403
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 187	100 239	100 308
+# Edges 108546	Average Clustering = 0.170222
+# Page Rank execution...
+# 48  iterations. Error: 0.000982469916379
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+90 190	100 208	100 268
+# Edges 90760	Average Clustering = 0.181959
+# Page Rank execution...
+# 207  iterations. Error: 0.000977322864126
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 154	100 189	100 314
+# Edges 87728	Average Clustering = 0.183232
+# Page Rank execution...
+# 103  iterations. Error: 0.000937260125219
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 164	90 190	100 301
+# Edges 85556	Average Clustering = 0.179938
+# Page Rank execution...
+# 206  iterations. Error: 0.000997471796484
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 184	95 213	100 354
+# Edges 97546	Average Clustering = 0.178846
+# Page Rank execution...
+# 193  iterations. Error: 0.000954171131213
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 167	100 188	95 299
+# Edges 94844	Average Clustering = 0.175644
+# Page Rank execution...
+# 121  iterations. Error: 0.000920902728689
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 166	100 227	100 283
+# Edges 119618	Average Clustering = 0.164332
+# Page Rank execution...
+# 58  iterations. Error: 0.00088682604822
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 172	100 189	95 268
+# Edges 96650	Average Clustering = 0.179907
+# Page Rank execution...
+# 82  iterations. Error: 0.000946494851797
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 159	95 187	100 300
+# Edges 115570	Average Clustering = 0.164530
+# Page Rank execution...
+# 102  iterations. Error: 0.00099609953887
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 160	100 182	100 245
+# Edges 108338	Average Clustering = 0.170377
+# Page Rank execution...
+# 88  iterations. Error: 0.000882384835241
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 179	100 170	95 267
+# Edges 106930	Average Clustering = 0.169901
+# Page Rank execution...
+# 67  iterations. Error: 0.000977417777213
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 189	90 204	100 279
+# Edges 81672	Average Clustering = 0.182825
+# Page Rank execution...
+# 171  iterations. Error: 0.000967704936529
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 168	100 218	100 322
+# Edges 94250	Average Clustering = 0.178080
+# Page Rank execution...
+# 126  iterations. Error: 0.000906373394498
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 175	100 203	100 287
+# Edges 99652	Average Clustering = 0.177714
+# Page Rank execution...
+# 168  iterations. Error: 0.000946006241575
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 177	95 174	95 322
+# Edges 78724	Average Clustering = 0.183714
+# Page Rank execution...
+# 357  iterations. Error: 0.000998354638076
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 161	95 271	100 344
+# Edges 95108	Average Clustering = 0.182524
+# Page Rank execution...
+# 274  iterations. Error: 0.000976636850133
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 166	95 206	95 295
+# Edges 119026	Average Clustering = 0.163191
+# Page Rank execution...
+# 54  iterations. Error: 0.00099111548066
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 170	100 167	100 262
+# Edges 94904	Average Clustering = 0.175150
+# Page Rank execution...
+# 82  iterations. Error: 0.000972738824385
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 191	100 225	95 322
+# Edges 92414	Average Clustering = 0.178999
+# Page Rank execution...
+# 231  iterations. Error: 0.000992552740722
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 180	100 222	95 294
+# Edges 121352	Average Clustering = 0.156203
+# Page Rank execution...
+# 64  iterations. Error: 0.000821723275435
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 175	100 188	100 313
+# Edges 79832	Average Clustering = 0.186332
+# Page Rank execution...
+# 444  iterations. Error: 0.000983893900427
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 199	90 216	100 350
+# Edges 118954	Average Clustering = 0.162961
+# Page Rank execution...
+# 69  iterations. Error: 0.000971111201357
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 165	100 186	100 256
+# Edges 112654	Average Clustering = 0.170283
+# Page Rank execution...
+# 76  iterations. Error: 0.000944299285448
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 192	95 168	95 269
+# Edges 99032	Average Clustering = 0.179323
+# Page Rank execution...
+# 144  iterations. Error: 0.000998779066029
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 161	100 200	95 311
+# Edges 92862	Average Clustering = 0.178274
+# Page Rank execution...
+# 127  iterations. Error: 0.00096588197004
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 185	95 220	90 300
+# Edges 100222	Average Clustering = 0.173892
+# Page Rank execution...
+# 78  iterations. Error: 0.000906634464594
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 155	95 195	100 302
+# Edges 110414	Average Clustering = 0.171686
+# Page Rank execution...
+# 98  iterations. Error: 0.000939477849942
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 166	100 212	100 287
+# Edges 96160	Average Clustering = 0.177057
+# Page Rank execution...
+# 89  iterations. Error: 0.000979546006778
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 196	100 234	100 282
+# Edges 99110	Average Clustering = 0.177069
+# Page Rank execution...
+# 78  iterations. Error: 0.000890429611482
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 208	100 214	100 257
+# Edges 103120	Average Clustering = 0.171151
+# Page Rank execution...
+# 81  iterations. Error: 0.000866187730741
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 173	100 247	90 281
+# Edges 112610	Average Clustering = 0.168279
+# Page Rank execution...
+# 59  iterations. Error: 0.000944724041539
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 189	90 160	100 267
+# 100 Watts-Strogatz Graphs
+# Edges 104222	Average Clustering = 0.175285
+# Page Rank execution...
+# 85  iterations. Error: 0.000921390888717
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 162	100 193	100 263
+# Edges 109560	Average Clustering = 0.169978
+# Page Rank execution...
+# 98  iterations. Error: 0.000904453633022
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 165	100 240	100 271
+# Edges 93464	Average Clustering = 0.181288
+# Page Rank execution...
+# 136  iterations. Error: 0.000956796079271
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 165	95 210	100 310
+# Edges 79226	Average Clustering = 0.186496
+# Page Rank execution...
+# 247  iterations. Error: 0.000978404845548
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 174	100 227	100 323
+# Edges 117732	Average Clustering = 0.162843
+# Page Rank execution...
+# 64  iterations. Error: 0.000904053596767
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 203	95 221	100 249
+# Edges 121788	Average Clustering = 0.160418
+# Page Rank execution...
+# 54  iterations. Error: 0.000823964819893
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+90 192	95 229	100 261
+# Edges 82724	Average Clustering = 0.186710
+# Page Rank execution...
+# 127  iterations. Error: 0.000924778301638
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 166	95 220	100 326
+# Edges 90356	Average Clustering = 0.184344
+# Page Rank execution...
+# 216  iterations. Error: 0.000985752954977
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 155	100 215	95 313
+# Edges 105214	Average Clustering = 0.175008
+# Page Rank execution...
+# 63  iterations. Error: 0.000916508882018
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 197	100 221	100 272
+# Edges 87322	Average Clustering = 0.181420
+# Page Rank execution...
+# 130  iterations. Error: 0.000922007501814
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 195	100 218	100 329
+# Edges 117288	Average Clustering = 0.165199
+# Page Rank execution...
+# 89  iterations. Error: 0.000882102078022
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 155	100 181	95 279
+# Edges 91962	Average Clustering = 0.180340
+# Page Rank execution...
+# 146  iterations. Error: 0.000952789070274
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 190	100 204	100 294
+# Edges 100390	Average Clustering = 0.175499
+# Page Rank execution...
+# 112  iterations. Error: 0.000929379909044
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 165	100 254	95 286
+# Edges 104776	Average Clustering = 0.171090
+# Page Rank execution...
+# 139  iterations. Error: 0.000997355828922
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 157	95 203	100 319
+# Edges 120630	Average Clustering = 0.161648
+# Page Rank execution...
+# 66  iterations. Error: 0.00087533487384
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 170	100 171	100 242
+# Edges 105528	Average Clustering = 0.171850
+# Page Rank execution...
+# 58  iterations. Error: 0.000839730605461
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 183	100 210	100 280
+# Edges 75846	Average Clustering = 0.188994
+# Page Rank execution...
+# 172  iterations. Error: 0.000985789081977
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 191	95 242	100 385
+# Edges 117100	Average Clustering = 0.162471
+# Page Rank execution...
+# 174  iterations. Error: 0.000982918885698
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 159	100 214	100 252
+# Edges 81446	Average Clustering = 0.181078
+# Page Rank execution...
+# 222  iterations. Error: 0.000997303898749
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 181	100 244	95 371
+# Edges 117050	Average Clustering = 0.164325
+# Page Rank execution...
+# 81  iterations. Error: 0.00089094284142
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 194	100 211	100 302
+# Edges 76668	Average Clustering = 0.186264
+# Page Rank execution...
+# 162  iterations. Error: 0.000982529069347
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 172	100 232	95 370
+# Edges 124110	Average Clustering = 0.158329
+# Page Rank execution...
+# 46  iterations. Error: 0.000903181884551
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 203	95 204	95 272
+# Edges 90678	Average Clustering = 0.179332
+# Page Rank execution...
+# 239  iterations. Error: 0.000990030765627
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 160	100 206	100 336
+# Edges 84028	Average Clustering = 0.180633
+# Page Rank execution...
+# 478  iterations. Error: 0.000987351902971
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 174	95 210	100 315
+# Edges 84746	Average Clustering = 0.183067
+# Page Rank execution...
+# 103  iterations. Error: 0.00093417400233
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 175	100 194	95 320
+# Edges 108512	Average Clustering = 0.171633
+# Page Rank execution...
+# 98  iterations. Error: 0.000987879656933
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 177	100 234	95 298
+# Edges 94176	Average Clustering = 0.178626
+# Page Rank execution...
+# 113  iterations. Error: 0.000987339514436
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 194	100 233	100 283
+# Edges 81772	Average Clustering = 0.183522
+# Page Rank execution...
+# 328  iterations. Error: 0.000985014998082
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 160	100 249	95 341
+# Edges 94662	Average Clustering = 0.180086
+# Page Rank execution...
+# 322  iterations. Error: 0.000980494639159
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 176	95 191	100 291
+# Edges 113802	Average Clustering = 0.165967
+# Page Rank execution...
+# 96  iterations. Error: 0.00090142688571
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+95 164	90 210	100 281
+# Edges 107204	Average Clustering = 0.173717
+# Page Rank execution...
+# 81  iterations. Error: 0.000926903995053
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 203	100 177	95 257
+# Edges 85290	Average Clustering = 0.181973
+# Page Rank execution...
+# 168  iterations. Error: 0.000972390809949
+# Eigenvector Centrality... # Done
+# Betweennes centrality... # Done
+100 186	95 244	100 326
