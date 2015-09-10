@@ -34,13 +34,6 @@ def fill_incoming(graph):
 def standardize(ws2dgraph):
     return {k: v['list'] for k,v in ws2dgraph.items()}
 
-def countEdges(graph):
-    edges = 0
-    for k in graph.keys():
-        for _ in graph[k]:
-            edges += 1
-    return edges
-
 def toUndirect(directGraph):
     dcopy = copy.deepcopy(directGraph)
     if type(dcopy.values()[0]) is set:
@@ -271,7 +264,7 @@ def Page_Rank(graph, alpha=0.85, max_iter=150, eps=1.0e-5):
 def Independent_Cascade(graph, seeds, rounds=0):
     # INIT
     A = set(seeds) # adopters
-    neg_A = set(graph.keys()) - A # not influenced indivuduals set
+    neg_A = set(graph.keys()) - A # not influenced individuals set
     S = A # recent adopters
     i = 1 # iterations
 
