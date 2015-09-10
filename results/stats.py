@@ -123,12 +123,35 @@ def draw_bars_comparison(title, ylabel, top_seeds, bar_width = 0.35, opacity = 0
     plt.subplots_adjust(hspace=0.3)
     plt.tight_layout()
     
-def draw_avgs(means):
+def draw_avg_infected(avg_infected, title, xlabel, ylabel, labels=['WikiVote', 'RandomGraph', 'WattsStrogatz', 'GeneralizedWS'], bar_width = 0.35, opacity = 0.4):
+    fig, ax = plt.subplots()
+    colors = ['b', 'r', 'y', 'c', 'g']
+    
+    rects = []
+    shape = np.shape(avg_infected)[0]
+    for i in xrange(shape):
+        rects.append(plt.bar(i, avg_infected[i], bar_width,
+                         alpha=opacity,
+                         color=colors[i],
+                         label=labels[i]))
+
+    
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.title(title)
+    plt.xticks([i+0.2 for i in xrange(shape)], labels)
+
+    for r in rects:
+        autolabel(r, ax)
+    
+    plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+    plt.subplots_adjust(hspace=0.3)
+    plt.tight_layout()
+
+def draw_avgs(means, bar_width = 0.35, opacity = 0.4):
     fig, ax = plt.subplots()
     
-    bar_width = 0.35
-
-    opacity = 0.4
+    
 
     rects1 = plt.bar(1, means[0], bar_width,
                      alpha=opacity,
