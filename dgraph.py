@@ -31,6 +31,15 @@ def fill_incoming(graph):
             if u not in incoming[v]:
                 incoming[v].add(u)
 
+def degree_distribution(graph):
+    dist = []
+    keys = graph.keys()
+    for i in xrange(1, max([len(graph[k]) + len(incoming[k]) for k in keys])+1):
+        freq = len([x for x in keys if len(graph[x])+len(incoming[x]) == i])
+        if freq > 0:
+            dist.append((i, freq))
+    return dist
+
 def standardize(ws2dgraph):
     return {k: v['list'] for k,v in ws2dgraph.items()}
 
