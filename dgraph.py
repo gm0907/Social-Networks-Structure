@@ -298,6 +298,6 @@ def IC_round(graph, adopters, others, recents):
         for v in graph[u]: # tries to influence each neighbor v in neg_A
             if v in others:
                 deg_v = len(graph[v]) + len(incoming[v])
-                if random.random() <= 1.0 / deg_v: # higher degree(v) means that v has to adopt the feature
+                if random.random() <= 1.0 / deg_v:
                     N.add(v)
     return N
